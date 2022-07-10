@@ -58,6 +58,7 @@ public class BoilerScript : MonoBehaviour
     {
         intPlayer.inTask = true;
         taskMenu.SetActive(true);
+        taskMenu.GetComponent<BoilerTask>().TaskStartup();
     }
 
     public void StopTask()
