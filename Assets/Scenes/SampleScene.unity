@@ -402,7 +402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: C:/CONDITION_STATUS> STABLE
+  m_Text: 
 --- !u!222 &139465633
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1498,7 +1498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: C:/COOLER_OFFSET> 296
+  m_Text: 
 --- !u!222 &1397451162
 CanvasRenderer:
   m_ObjectHideFlags: 0

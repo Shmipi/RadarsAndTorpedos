@@ -30,7 +30,7 @@ public class BoilerTask : MonoBehaviour
         offsetDisplay.text = "C:/COOLER_OFFSET> " + coolerOffset;
         thisOffsetDisplay.text = " " + thisOffset;
 
-        tempDisplay.text = "C:/CURRENT_TEMP> " + boilerScript.temperature;
+        tempDisplay.text = "C:/CURRENT_TEMP> " + boilerScript.temperature + "K";
 
         if (boilerScript.temperature >= 343)
         {

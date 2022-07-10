@@ -15,14 +15,19 @@ public class BoilerScript : MonoBehaviour
     private PlayerMovement intPlayer;
     private bool playerColliding;
 
+    private bool taskOn;
+
+    private int nextUpdate = 1;
+
     // Start is called before the first frame update
     void Start()
     {
         minTemperature = 293;
-        maxTemperature = 373;
+        maxTemperature = 473;
         temperature = Random.Range(294, 313);
 
         playerColliding = false;
+        taskOn = false;
 
         taskMenu.SetActive(false);
     }
@@ -33,6 +38,12 @@ public class BoilerScript : MonoBehaviour
         if(playerColliding == true && intPlayer.interacting == true)
         {
             StartTask();
+        }
+
+        if(Time.time >= nextUpdate)
+        {
+            nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+            UpdateEverySecond();
         }
     }
 
@@ -49,7 +60,6 @@ public class BoilerScript : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            intPlayer = null;
             playerColliding = false;
         }
     }
@@ -57,6 +67,7 @@ public class BoilerScript : MonoBehaviour
     private void StartTask()
     {
         intPlayer.inTask = true;
+        taskOn = true;
         taskMenu.SetActive(true);
         taskMenu.GetComponent<BoilerTask>().TaskStartup();
     }
@@ -64,5 +75,14 @@ public class BoilerScript : MonoBehaviour
     public void StopTask()
     {
         intPlayer.inTask = false;
+        taskOn = false;
+    }
+
+    private void UpdateEverySecond()
+    {
+        if(taskOn == false && temperature < maxTemperature)
+        {
+            temperature += 1;
+        }
     }
 }
